@@ -119,37 +119,105 @@ class PageOne(tk.Frame):
         DOO_button.grid(row = 1, column = 5,  pady=(10,10), padx=(10,10))
 
         AOOR_button = ttk.Button(self, text="AOOR", command=lambda: controller.show_frame(AOOR))
-        AOOR_button.grid(row = 2, column = 1,  pady=(10,10), padx=(20,10))
+        AOOR_button.grid(row = 2, column = 1,  pady=(10,50), padx=(20,10))
 
         VOOR_button = ttk.Button(self, text="VOOR", command=lambda: controller.show_frame(VOOR))
-        VOOR_button.grid(row = 2, column = 2,  pady=(10,10), padx=(10,10))
+        VOOR_button.grid(row = 2, column = 2,  pady=(10,50), padx=(10,10))
 
         AAIR_button = ttk.Button(self, text="AAIR", command=lambda: controller.show_frame(AAIR))
-        AAIR_button.grid(row = 2, column = 3,  pady=(10,10), padx=(10,10))
+        AAIR_button.grid(row = 2, column = 3,  pady=(10,50), padx=(10,10))
 
         VVIR_button = ttk.Button(self, text="VVIR", command=lambda: controller.show_frame(VVIR))
-        VVIR_button.grid(row = 2, column = 4,  pady=(10,10), padx=(10,10))
+        VVIR_button.grid(row = 2, column = 4,  pady=(10,50), padx=(10,10))
 
         DOOR_button = ttk.Button(self, text="DOOR", command=lambda: controller.show_frame(DOOR))
-        DOOR_button.grid(row = 2, column = 5,  pady=(10,10), padx=(10,10))
+        DOOR_button.grid(row = 2, column = 5,  pady=(10,50), padx=(10,10))
+
+        #This Button creates a popup to view the most recent values
+        RUN_button = ttk.Button(self, text="Run")
+        RUN_button.grid(row = 20, column = 5,  pady=(10,10), padx=(10,10))
 
         #This Button creates a popup to view the most recent values
         VALUES_button = ttk.Button(self, text="Show Values", command=self.showValues)
-        VALUES_button.grid(row = 20, column = 5,  pady=(10,10), padx=(20,10))
+        VALUES_button.grid(row = 20, column = 3,  pady=(10,10), padx=(10,10))
 
         LOGOUT_button = ttk.Button(self, text="Log Out", command=lambda: controller.show_frame(StartPage))
-        LOGOUT_button.grid(row = 20, column = 0,  pady=(10,10), padx=(20,10))
+        LOGOUT_button.grid(row = 20, column = 0,  pady=(10,10), padx=(10,10))
 
     def showValues(self):  #Function to retrieve and display all the current inputs for the user
 
         usr = getRecent() #getRecent() gets the returns the name of the user that is logged in using the getValue() method from gets
+        mode = str(getValue(usr, "mode"))
 
-        return alert('Current Values:\n\n' +
-        'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
-        'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'VAmp: '+str(getValue(usr, "VAmp"))+ '\n'      +'APW: '+str(getValue(usr, "APW")) +'\n'+
-        'VPW: '+str(getValue(usr, "VPW"))+ '\n'     +'ARP: '+str(getValue(usr, "ARP"))+ '\n'        +'VRP: '+str(getValue(usr, "VRP")) +'\n'+
-        'MSR: '+str(getValue(usr, "MSR"))+ '\n'     +'FAVD: '+str(getValue(usr, "FAVD"))+ '\n'      +'AT: '+str(getValue(usr, "AT")) +'\n'+
-        'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n' +'RF: '+str(getValue(usr, "RF"))+ '\n'  +'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
+        if mode == 'aoo':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'APW: '+str(getValue(usr, "APW")))
+
+        elif mode == "voo":
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'VAmp: '+str(getValue(usr, "VAmp"))+ '\n'   +'VPW: '+str(getValue(usr, "VPW")))
+
+        elif mode == "aai":
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'APW: '+str(getValue(usr, "APW")) +'\n'    +'ARP: '+str(getValue(usr, "ARP")))
+
+        elif mode =='vvi':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'VAmp: '+str(getValue(usr, "VAmp"))+ '\n'   +'VPW: '+str(getValue(usr, "VPW")) +'\n'    +'VRP: '+str(getValue(usr, "VRP")))
+
+        elif mode =='doo':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'VAmp: '+str(getValue(usr, "VAmp"))+ '\n'      +'APW: '+str(getValue(usr, "APW")) +'\n'+
+            'VPW: '+str(getValue(usr, "VPW"))+ '\n'  +'FAVD: '+str(getValue(usr, "FAVD")))
+
+        elif mode == 'aoor':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'APW: '+str(getValue(usr, "APW")) +'\n' +'MSR: '+str(getValue(usr, "MSR"))+ '\n'    +
+            'AT: '+str(getValue(usr, "AT")) +'\n'+  'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n' +'RF: '+str(getValue(usr, "RF"))+ '\n'+
+            'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
+
+        elif mode == 'voor':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'VAmp: '+str(getValue(usr, "VAmp"))+ '\n'   +'VPW: '+str(getValue(usr, "VPW")) +'\n' +'MSR: '+str(getValue(usr, "MSR"))+ '\n'    +
+            'AT: '+str(getValue(usr, "AT")) +'\n'+  'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n' +'RF: '+str(getValue(usr, "RF"))+ '\n'+
+            'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
+
+        elif mode == 'aair':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'APW: '+str(getValue(usr, "APW")) +'\n'+   'ARP: '+str(getValue(usr, "ARP")) +'\n'+
+            'MSR: '+str(getValue(usr, "MSR"))+ '\n'    +'AT: '+str(getValue(usr, "AT")) +'\n'+  'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n'+
+            'RF: '+str(getValue(usr, "RF"))+ '\n'+  'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
+
+        elif mode == 'vvir':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'VAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'VPW: '+str(getValue(usr, "APW")) +'\n'+   'VRP: '+str(getValue(usr, "ARP")) +'\n'+
+            'MSR: '+str(getValue(usr, "MSR"))+ '\n'    +'AT: '+str(getValue(usr, "AT")) +'\n'+  'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n'+
+            'RF: '+str(getValue(usr, "RF"))+ '\n'+  'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
+
+        elif mode == 'door':
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'VAmp: '+str(getValue(usr, "VAmp"))+ '\n'      +'APW: '+str(getValue(usr, "APW")) +'\n'+
+            'VPW: '+str(getValue(usr, "VPW"))+ '\n'     +'MSR: '+str(getValue(usr, "MSR"))+ '\n'     +'FAVD: '+str(getValue(usr, "FAVD"))+ '\n'+
+            'AT: '+str(getValue(usr, "AT")) +'\n'       +'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n' +'RF: '+str(getValue(usr, "RF"))+ '\n'  +
+            'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
+
+        else:
+            return alert('Current Values:\n\n' +
+            'mode: '+str(getValue(usr, "mode"))+ '\n'   +'lower: '+str(getValue(usr, "lower"))+ '\n'    +'upper: '+str(getValue(usr, "upper")) +'\n'+
+            'AAmp: '+str(getValue(usr, "AAmp"))+ '\n'   +'VAmp: '+str(getValue(usr, "VAmp"))+ '\n'      +'APW: '+str(getValue(usr, "APW")) +'\n'+
+            'VPW: '+str(getValue(usr, "VPW"))+ '\n'     +'ARP: '+str(getValue(usr, "ARP"))+ '\n'        +'VRP: '+str(getValue(usr, "VRP")) +'\n'+
+            'MSR: '+str(getValue(usr, "MSR"))+ '\n'     +'FAVD: '+str(getValue(usr, "FAVD"))+ '\n'      +'AT: '+str(getValue(usr, "AT")) +'\n'+
+            'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n' +'RF: '+str(getValue(usr, "RF"))+ '\n'  +'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
 
 
 class AOO(tk.Frame):
