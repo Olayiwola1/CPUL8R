@@ -1,5 +1,6 @@
 import json
 from tkinter import *
+from tkinter import ttk
 
 # Checks JSON object for User count to ensure that maximum of 10 users is maintained
 def checkCountUsers():
@@ -14,19 +15,24 @@ def checkCountUsers():
 def register(username, password):
     #Checks user count to ensure that more than 10 users are no created
     #Checks username to ensure that it doesn't already exist
-    if checkCountUsers() == True and checkUsername(username)== False:
+    if username == "" or username.isspace() or password == "" or password.isspace():
+        return False
+    elif checkCountUsers() == True and checkUsername(username)== False:
         with open('users.json') as json_file:
             data = json.load(json_file)
             count = data["count"]
             count +=1
             data["count"] = count
             #initialize user information
-            data.update({username:{
-            "password":password,
-            "aoo":{"lower":60,"upper":120,"AAmp":3.5, "APW":0.4},
-            "voo":{"lower":60,"upper":120,"VAmp":3.5, "VPW":0.4},
-            "aai":{"lower":60,"upper":120,"AAmp":3.5, "APW":0.4, "ARP":250},
-             "vvi":{"lower":60,"upper":120,"VAmp":3.5, "VPW":0.4, "VRP":320}}})
+            data.update(
+                {username:{
+                    "password":password, "mode": "aoo", "lower": 60, "upper": 120,
+                    "AAmp": 3.5, "VAmp": 3.5, "APW": 0.4, "VPW": 0.4, "ARP": 250,
+                    "VRP": 320, "MSR": 120, "FAVD": 150, "AT": "Med", "ReactTime": 30,
+                    "RF": 8, "RecoveryTime": 5
+                     }
+                })
+
         #dumps info into JSON file
         with open('users.json', 'w') as json_file:
             json.dump(data, json_file)
@@ -70,11 +76,10 @@ def recent(username):
         json.dump(data, json_file)
 
 #Updates parameters for each mode (called in main.py to update values)
-def update(username, mode, key, value):
+def update(username, key, value):
     with open('users.json') as json_file:
         data = json.load(json_file)
-
-        data[username][mode][key] = value
+        data[username][key] = value
 
     with open('users.json', 'w') as json_file:
         json.dump(data, json_file)
@@ -100,10 +105,3 @@ def alert(message):
 
     button = ttk.Button(window, text="Dismiss", command=window.destroy)
     button.pack(pady=3)
-
-#Retrieves the username of the user that is currently logged in
-def getRecent():
-    with open('users.json') as json_file:
-        data = json.load(json_file)
-        return data["recent"]
-

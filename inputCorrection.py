@@ -1,54 +1,80 @@
-#Funtions to adjust inputted values
+from logins import *
 
-#Adjusts the input value of the Lower Rate Limit to match the range and increment requirements
-def setLRL(value):
-    if value <= 30:
-        return 30
-    elif value > 175:
-        return 175
-    elif value >30 and value <=50:
-        return int((value // 5)*5)
-    elif value >50 and value <=90:
-        return int(round(value))
-    elif value >90 and value <=175:
-        return int((value // 5)*5)
+#Functions to check inputted parameters
 
-#Adjusts the input value of the Upper Rate Limit to match the range and increment requirements
-def setURL(value):
-    if value <= 50:
-        return 50
-    elif value > 50 and value < 175:
-        return int((value // 5)*5)
+#Check the input value of the Lower Rate Limit to match the range requirements and return True if valid
+def checkLRL(value):
+    if value >=30 and value <=175:
+        return True
     else:
-        return 175
+        return False
 
-#Adjusts the input value of the Atrial/Ventricular Amplitude to match the range and increment requirements
-def setAmp(value):
-    if value == 0:
-        return 0
-    elif value <= 0.5:
-        return 0.5
-    elif value > 0.5 and value < 3.2:
-        return round(value,1)
-    elif value >=3.2 and value <3.5:
-        return 3.2
-    elif value >=3.5 and value < 7:
-        return 0.5 * round(value/0.5)
+#Check the input value of the Upper Rate Limit to match the range requirements and return True if valid
+def checkURL(value):
+    if value >=50 and value <=175:
+        return True
     else:
-        return 7.0
+        return False
 
-#Adjusts the input value of the Atrial/Ventricular Pulse Width to match the range and increment requirements
-def setPW(value):
-    if value >= 0.1 and value <= 1.9:
-        return round(value,1)
+#Check the input value of the Atrial/Ventricular Amplitude to match the range requirements and return True if valid
+def checkAmp(value):
+    if (value >=0.5 and value <=3.2) or (value >=3.5 and value <=7.0) or (value==0):
+        return True
     else:
-        return 0.05
+        return False
 
-#Adjusts the input value of the Atrial/Ventricular Refractory Period to match the range and increment requirements
-def setRP(value):
-    if value <= 150:
-        return 150
-    elif value > 150 and value < 500:
-        return 10 * round(value/10)
+#Check the input value of the Atrial/Ventricular Pulse Width to match the range requirements and return True if valid
+def checkPW(value):
+    if (value >=0.1 and value <=1.9) or (value == 0.05):
+        return True
     else:
-         return 500
+        return False
+
+#Check the input value of the Atrial/Ventricular Refractory Period to match the range requirements and return True if valid
+def checkRP(value):
+    if value >=150 and value <=500:
+        return True
+    else:
+        return False
+
+#Check the input value of the Maximum Sensor Rate to match the range requirements and return True if valid
+def checkMSR(value):
+    if value >=50 and value <=175:
+        return True
+    else:
+        return False
+
+#Check the input value of the Fixed AV Delay to match the range requirements and return True if valid
+def checkFAVD(value):
+    if value >=70 and value <=300:
+        return True
+    else:
+        return False
+
+#Check the input value of the Activity Threshold to match the range requirements and return True if valid
+def checkAT(value):
+    if value == "V-Low" or value == "Low" or value == "Med-Low" or value == "Med" or value == "Med-High" or value == "High" or value == "V-High":
+        return True
+    else:
+        return False
+
+#Check the input value of the Reaction Time to match the range requirements and return True if valid
+def checkReactTime(value):
+    if value >=10 and value <=50:
+        return True
+    else:
+        return False
+
+#Check the input value of the Response Factor to match the range requirements and return True if valid
+def checkRF(value):
+    if value >=1 and value <=16:
+        return True
+    else:
+        return False
+
+#Check the input value of the Recovery Time to match the range requirements and return True if valid
+def checkRecoveryTime(value):
+    if value >=2 and value <=16:
+        return True
+    else:
+        return False
