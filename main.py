@@ -1,4 +1,5 @@
-#Main
+# Main
+# import all required
 import tkinter as tk
 from tkinter import ttk
 import json
@@ -232,22 +233,22 @@ class AOO(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column=0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
         ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
         self.APW_Entry.set(0.4)
         ttk.Label(self, text="Atrial Pulse Width\n(0.05, 0.1-1.9)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.APW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.APW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
 
         self.AOO_Button = ttk.Button(self, text="Enter",
@@ -261,10 +262,12 @@ class AOO(tk.Frame):
     def aooValues(self):
 
         usr = getRecent() #getRecent() gets the returns the name of the user that is logged in
+        # gets the value of
         lrl = self.LRL_Entry.get()
         url = self.URL_Entry.get()
         aamp = self.AA_Entry.get()
         apw = self.APW_Entry.get()
+
 
         if checkLRL(lrl) and checkURL(url) and checkAmp(aamp) and checkPW(apw):
             update(usr, "mode", "aoo")
@@ -289,22 +292,22 @@ class VOO(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column=0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
         ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
         self.VPW_Entry.set(0.4)
         ttk.Label(self, text="Ventricular Pulse Width\n(0.05, 0.1-1.9)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VPW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VPW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VOO_Button = ttk.Button(self, text="Enter",
                             command= self.vooValues, cursor = "target")
@@ -345,27 +348,27 @@ class AAI(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
         ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
         self.APW_Entry.set(0.4)
         ttk.Label(self, text="Atrial Pulse Width\n(0.05, 0.1-1.9)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.APW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.APW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.ARP_Entry = tk.DoubleVar()
         self.ARP_Entry.set(250)
         ttk.Label(self, text="Atrial Refractory Period\n(150-500)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.ARP_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.ARP_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.AAI_Button = ttk.Button(self, text="Enter",
                             command= self.aaiValues, cursor = "target")
@@ -408,27 +411,27 @@ class VVI(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
         ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
         self.VPW_Entry.set(0.4)
         ttk.Label(self, text="Ventricular Pulse Width\n(0.05, 0.1-1.9)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VPW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VPW_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VRP_Entry = tk.DoubleVar()
         self.VRP_Entry.set(320)
         ttk.Label(self, text="Ventricular Refractory Period\n(150-500)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VRP_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VRP_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.VVI_Button = ttk.Button(self, text="Enter",
                             command= self.vviValues, cursor = "target")
@@ -471,37 +474,37 @@ class DOO(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.FixedAV_Entry = tk.DoubleVar()
         self.FixedAV_Entry.set(150)
         ttk.Label(self, text="Fixed AV Delay\n(70-300)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.FixedAV_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.FixedAV_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
         ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
         ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VA_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
         self.APW_Entry.set(0.4)
         ttk.Label(self, text="Atrial Pulse Width\n(0.05, 0.1-1.9)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.APW_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.APW_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
         self.VPW_Entry.set(0.4)
         ttk.Label(self, text="Ventricular Pulse Width\n(0.05, 0.1-1.9)").grid(row = 3, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VPW_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VPW_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
 
         self.DOO_Button = ttk.Button(self, text="Enter",
                             command= self.dooValues, cursor = "target")
@@ -550,47 +553,47 @@ class AOOR(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column=0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.MSR_Entry = tk.DoubleVar()
         self.MSR_Entry.set(120)
         ttk.Label(self, text="Maximum Sensor Rate\n(50-175)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
         ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
         self.APW_Entry.set(0.4)
         ttk.Label(self, text="Atrial Pulse Width\n(0.05, 0.1-1.9)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.APW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.APW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.AT_Entry = tk.StringVar()
         self.AT_Entry.set("Med")
         ttk.Label(self, text="Activity Threshold\n(V-Low, Low, Med-Low,\nMed, Med-High,\nHigh, V-High)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AT_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AT_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
 
         self.ReactTime_Entry = tk.DoubleVar()
         self.ReactTime_Entry.set(30)
         ttk.Label(self, text="Reaction Time\n(10-50)").grid(row = 3, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.ReactTime_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.ReactTime_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
 
         self.RF_Entry = tk.DoubleVar()
         self.RF_Entry.set(8)
         ttk.Label(self, text="Reponse Factor\n(1-16)").grid(row = 4, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RF_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RF_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
 
         self.RecoveryTime_Entry = tk.DoubleVar()
         self.RecoveryTime_Entry.set(5)
         ttk.Label(self, text="Recovery Time\n(2-16)").grid(row = 1, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RecoveryTime_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RecoveryTime_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
 
         self.AOOR_Button = ttk.Button(self, text="Enter",
                             command= self.aoorValues, cursor = "target")
@@ -641,47 +644,47 @@ class VOOR(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column=0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.MSR_Entry = tk.DoubleVar()
         self.MSR_Entry.set(120)
         ttk.Label(self, text="Maximum Sensor Rate\n(50-175)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
         ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
         self.VPW_Entry.set(0.4)
         ttk.Label(self, text="Atrial Pulse Width\n(0.05, 0.1-1.9)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VPW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VPW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.AT_Entry = tk.StringVar()
         self.AT_Entry.set("Med")
         ttk.Label(self, text="Activity Threshold\n(V-Low, Low, Med-Low,\nMed, Med-High,\nHigh, V-High)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AT_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AT_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
 
         self.ReactTime_Entry = tk.DoubleVar()
         self.ReactTime_Entry.set(30)
         ttk.Label(self, text="Reaction Time\n(10-50)").grid(row = 3, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.ReactTime_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.ReactTime_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
 
         self.RF_Entry = tk.DoubleVar()
         self.RF_Entry.set(8)
         ttk.Label(self, text="Reponse Factor\n(1-16)").grid(row = 4, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RF_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RF_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
 
         self.RecoveryTime_Entry = tk.DoubleVar()
         self.RecoveryTime_Entry.set(5)
         ttk.Label(self, text="Recovery Time\n(2-16)").grid(row = 1, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RecoveryTime_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RecoveryTime_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
 
         self.VOOR_Button = ttk.Button(self, text="Enter",
                             command= self.voorValues, cursor = "target")
@@ -732,52 +735,52 @@ class AAIR(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column=0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.MSR_Entry = tk.DoubleVar()
         self.MSR_Entry.set(120)
         ttk.Label(self, text="Maximum Sensor Rate\n(50-175)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
         ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
         self.APW_Entry.set(0.4)
         ttk.Label(self, text="Atrial Pulse Width\n(0.05, 0.1-1.9)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.APW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.APW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.ARP_Entry = tk.DoubleVar()
         self.ARP_Entry.set(250)
         ttk.Label(self, text="Atrial Refractory Period\n(150-500)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.ARP_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.ARP_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
 
         self.AT_Entry = tk.StringVar()
         self.AT_Entry.set("Med")
         ttk.Label(self, text="Activity Threshold\n(V-Low, Low, Med-Low,\nMed, Med-High,\nHigh, V-High)").grid(row = 3, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AT_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AT_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
 
         self.ReactTime_Entry = tk.DoubleVar()
         self.ReactTime_Entry.set(30)
         ttk.Label(self, text="Reaction Time\n(10-50)").grid(row = 4, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.ReactTime_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.ReactTime_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
 
         self.RF_Entry = tk.DoubleVar()
         self.RF_Entry.set(8)
         ttk.Label(self, text="Reponse Factor\n(1-16)").grid(row = 1, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RF_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RF_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
 
         self.RecoveryTime_Entry = tk.DoubleVar()
         self.RecoveryTime_Entry.set(5)
         ttk.Label(self, text="Recovery Time\n(2-16)").grid(row = 2, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RecoveryTime_Entry).grid(row = 2, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RecoveryTime_Entry).grid(row = 2, column = 5, pady=(10,0), padx=(10,10))
 
         self.AAIR_Button = ttk.Button(self, text="Enter",
                             command= self.aairValues, cursor = "target")
@@ -830,52 +833,52 @@ class VVIR(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column=0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.MSR_Entry = tk.DoubleVar()
         self.MSR_Entry.set(120)
         ttk.Label(self, text="Maximum Sensor Rate\n(50-175)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
         ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
         self.VPW_Entry.set(0.4)
         ttk.Label(self, text="Ventricular Pulse Width\n(0.05, 0.1-1.9)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VPW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VPW_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.VRP_Entry = tk.DoubleVar()
         self.VRP_Entry.set(320)
         ttk.Label(self, text="Ventricular Refractory Period\n(150-500)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.VRP_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.VRP_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
 
         self.AT_Entry = tk.StringVar()
         self.AT_Entry.set("Med")
         ttk.Label(self, text="Activity Threshold\n(V-Low, Low, Med-Low,\nMed, Med-High,\nHigh, V-High)").grid(row = 3, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AT_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AT_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
 
         self.ReactTime_Entry = tk.DoubleVar()
         self.ReactTime_Entry.set(30)
         ttk.Label(self, text="Reaction Time\n(10-50)").grid(row = 4, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.ReactTime_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.ReactTime_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
 
         self.RF_Entry = tk.DoubleVar()
         self.RF_Entry.set(8)
         ttk.Label(self, text="Reponse Factor\n(1-16)").grid(row = 1, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RF_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RF_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
 
         self.RecoveryTime_Entry = tk.DoubleVar()
         self.RecoveryTime_Entry.set(5)
         ttk.Label(self, text="Recovery Time\n(2-16)").grid(row = 2, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RecoveryTime_Entry).grid(row = 2, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RecoveryTime_Entry).grid(row = 2, column = 5, pady=(10,0), padx=(10,10))
 
         self.VVIR_Button = ttk.Button(self, text="Enter",
                             command= self.vvirValues, cursor = "target")
@@ -927,62 +930,62 @@ class DOOR(tk.Frame):
         self.LRL_Entry = tk.DoubleVar()
         self.LRL_Entry.set(60)
         ttk.Label(self, text="Lower Rate Limit\n(30-175)").grid(row = 1, column=0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.LRL_Entry).grid(row = 1, column = 1, pady=(10,0), padx=(10,10))
 
         self.URL_Entry = tk.DoubleVar()
         self.URL_Entry.set(120)
         ttk.Label(self, text="Upper Rate Limit\n(50-175)").grid(row = 2, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.URL_Entry).grid(row = 2, column = 1, pady=(10,0), padx=(10,10))
 
         self.MSR_Entry = tk.DoubleVar()
         self.MSR_Entry.set(120)
         ttk.Label(self, text="Maximum Sensor Rate\n(50-175)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.MSR_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.FixedAV_Entry = tk.DoubleVar()
         self.FixedAV_Entry.set(150)
         ttk.Label(self, text="Fixed AV Delay\n(70-300)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.FixedAV_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.FixedAV_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
         ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AA_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
         ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AA_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
         self.APW_Entry.set(0.4)
         ttk.Label(self, text="Atrial Pulse Width\n(0.05, 0.1-1.9)").grid(row = 3, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.APW_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.APW_Entry).grid(row = 3, column = 3, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
         self.VPW_Entry.set(0.4)
         ttk.Label(self, text="Ventricular Pulse Width\n(0.05, 0.1-1.9)").grid(row = 4, column = 2, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.APW_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.APW_Entry).grid(row = 4, column = 3, pady=(10,0), padx=(10,10))
 
         self.AT_Entry = tk.StringVar()
         self.AT_Entry.set("Med")
         ttk.Label(self, text="Activity Threshold\n(V-Low, Low, Med-Low,\nMed,Med-High,\nHigh, V-High)").grid(row = 1, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.AT_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.AT_Entry).grid(row = 1, column = 5, pady=(10,0), padx=(10,10))
 
         self.ReactTime_Entry = tk.DoubleVar()
         self.ReactTime_Entry.set(30)
         ttk.Label(self, text="Reaction Time\n(10-50)").grid(row = 2, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.ReactTime_Entry).grid(row = 2, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.ReactTime_Entry).grid(row = 2, column = 5, pady=(10,0), padx=(10,10))
 
         self.RF_Entry = tk.DoubleVar()
         self.RF_Entry.set(8)
         ttk.Label(self, text="Reponse Factor\n(1-16)").grid(row = 3, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RF_Entry).grid(row = 3, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RF_Entry).grid(row = 3, column = 5, pady=(10,0), padx=(10,10))
 
         self.RecoveryTime_Entry = tk.DoubleVar()
         self.RecoveryTime_Entry.set(5)
         ttk.Label(self, text="Recovery Time\n(2-16)").grid(row = 4, column = 4, pady=(10,0), padx=(10,10))
-        ttk.Entry(self, textvariable=self.RecoveryTime_Entry).grid(row = 4, column = 5, pady=(10,0), padx=(10,10))
+        ttk.Entry(self, width="8", textvariable=self.RecoveryTime_Entry).grid(row = 4, column = 5, pady=(10,0), padx=(10,10))
 
         self.DOOR_Button = ttk.Button(self, text="Enter",
                             command= self.doorValues, cursor = "target")
