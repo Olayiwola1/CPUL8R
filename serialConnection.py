@@ -1,44 +1,38 @@
-#import serial, time
+import serial
+import serial.tools.list_ports
 
-# ser = serial.Serial(port = 'COM8', baudrate = 115200, timeout=1)
-#
-#
-#
-# print(ser.is_open)
-# ser.close()
-# print(ser.is_open)
+#print(list(serial.tools.list_ports.comports()).__getitem__(1))
 
-import serial, time, struct
+def getComPort():
+    i = 0;
+    while(True):
+        try:
+            list(serial.tools.list_ports.comports()).__getitem__(i)
+            myCom = list(serial.tools.list_ports.comports()).__getitem__(i)[0]
+            if list(serial.tools.list_ports.comports()).__getitem__(i)[1] == 'JLink CDC UART Port ('+myCom+')':
+                return myCom
+            i+=1
+        except:
+            break
+    return None
 
-ser = serial.Serial(port = 'COM8', baudrate = 9600, timeout=1)
-strToString = ""
+print(getComPort())
 
-
-i = float(input("What number? "))
-strToString += str(struct.pack("d", i))
-print(strToString)
-# strToString = str.encode(strToString)
-strToString = strToString.encode()
-print(strToString)
-print(ser.name)
-ser.write(strToString)
-ser.close()
-
-
+# LED Test that Works
 
 # import serial, time, struct
 #
-# ser = serial.Serial(port = 'COM8', baudrate = 9600, timeout=1)
+# ser = serial.Serial(port = 'COM8',baudrate=115200)
+# strToString = ""
 #
-# if __name__ == '__main__':
-#     strToString = ""
+# if ser.is_open:
+#     print("open")
 #
-#     for x in range(4):
-#         i = input("What number? ")
-#         strToString += struct.pack("!B", i)
+# output = bytearray([10,1,0,1])
+# print(output)
+# x=0
+# while x< 10000:
+#     x+=1
+#     ser.write(output)
 #
-#     while(true):
-#         print(ser.name)
-#         ser.write(strToString)
-#
-#     ser.close()
+# ser.close()
