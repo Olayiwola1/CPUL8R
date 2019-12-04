@@ -4,18 +4,20 @@ from gets import *
 
 #print(list(serial.tools.list_ports.comports()).__getitem__(1))
 
+# Create Function to detect the com port on the computer
 def getComPort():
     i = 0;
     while(True):
         try:
             list(serial.tools.list_ports.comports()).__getitem__(i)
             myCom = list(serial.tools.list_ports.comports()).__getitem__(i)[0]
+            #ensure that the comport that was detected was for the pacemaker device
             if list(serial.tools.list_ports.comports()).__getitem__(i)[1] == 'JLink CDC UART Port ('+myCom+')':
-                return myCom
+                return myCom    #return comport name if found
             i+=1
         except:
             break
-    return False
+    return False    #return False if no comport found (i.e. device not connected)
 
 def sendValues(comport):
     ser = serial.Serial(port=comport, baudrate=115200)
@@ -55,10 +57,11 @@ def sendValues(comport):
     for i in range(len(output)):
         print(output[i])
 
-    for i in range(10000):
+    x=0
+    while x< 5000:
+        x+=1
         ser.write(output)
     ser.close()
-
 
 # LED Test that Works
 #

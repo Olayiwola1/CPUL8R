@@ -251,7 +251,7 @@ class AOO(tk.Frame):
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
-        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
@@ -310,7 +310,7 @@ class VOO(tk.Frame):
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
-        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
@@ -366,7 +366,7 @@ class AAI(tk.Frame):
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
-        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
@@ -429,7 +429,7 @@ class VVI(tk.Frame):
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
-        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 3, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 3, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
@@ -497,12 +497,12 @@ class DOO(tk.Frame):
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
-        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
-        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
@@ -576,7 +576,7 @@ class AOOR(tk.Frame):
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
-        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
@@ -667,7 +667,7 @@ class VOOR(tk.Frame):
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
-        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
@@ -758,7 +758,7 @@ class AAIR(tk.Frame):
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
-        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
@@ -856,7 +856,7 @@ class VVIR(tk.Frame):
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
-        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 4, column = 0, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.VA_Entry).grid(row = 4, column = 1, pady=(10,0), padx=(10,10))
 
         self.VPW_Entry = tk.DoubleVar()
@@ -958,12 +958,12 @@ class DOOR(tk.Frame):
 
         self.AA_Entry = tk.DoubleVar()
         self.AA_Entry.set(3.5)
-        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Atrial Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 1, column = 2, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 1, column = 3, pady=(10,0), padx=(10,10))
 
         self.VA_Entry = tk.DoubleVar()
         self.VA_Entry.set(3.5)
-        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-7)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
+        ttk.Label(self, text="Ventricular Amplitude\n(0, 0.5-3.2, 3.5-5.0)").grid(row = 2, column = 2, pady=(10,0), padx=(10,10))
         ttk.Entry(self, width="8", textvariable=self.AA_Entry).grid(row = 2, column = 3, pady=(10,0), padx=(10,10))
 
         self.APW_Entry = tk.DoubleVar()
