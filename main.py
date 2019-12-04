@@ -7,6 +7,7 @@ from tkinter import messagebox
 from logins import *
 from inputCorrection import *
 from gets import *
+from serialConnection import *
 
 TITLE_FONT = ("Verdana", 20)
 
@@ -135,7 +136,7 @@ class PageOne(tk.Frame):
         DOOR_button.grid(row = 2, column = 5,  pady=(10,50), padx=(10,10))
 
         #This Button creates a popup to view the most recent values
-        RUN_button = ttk.Button(self, text="Run")
+        RUN_button = ttk.Button(self, text="Run",command=self.runValues)
         RUN_button.grid(row = 20, column = 5,  pady=(10,10), padx=(10,10))
 
         #This Button creates a popup to view the most recent values
@@ -146,7 +147,6 @@ class PageOne(tk.Frame):
         LOGOUT_button.grid(row = 20, column = 0,  pady=(10,10), padx=(10,10))
 
     def showValues(self):  #Function to retrieve and display all the current inputs for the user
-
         usr = getRecent() #getRecent() gets the returns the name of the user that is logged in using the getValue() method from gets
         mode = str(getValue(usr, "mode"))
 
@@ -220,6 +220,15 @@ class PageOne(tk.Frame):
             'MSR: '+str(getValue(usr, "MSR"))+ '\n'     +'FAVD: '+str(getValue(usr, "FAVD"))+ '\n'      +'AT: '+str(getValue(usr, "AT")) +'\n'+
             'ReactTime: '+str(getValue(usr, "ReactTime"))+ '\n' +'RF: '+str(getValue(usr, "RF"))+ '\n'  +'RecoveryTime: '+str(getValue(usr, "RecoveryTime")) +'\n')
 
+    def runValues(self):
+        if getComPort() == False:
+            alert("Device\nnot\nconnected")
+        else:
+            COM = getComPort()
+            sendValues(COM)
+            alert("Parameters\nSent")
+
+
 
 class AOO(tk.Frame):
     #__init__ method describes what is in our page
@@ -278,7 +287,7 @@ class AOO(tk.Frame):
             return alert("Values added successfully:")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class VOO(tk.Frame):
@@ -334,7 +343,7 @@ class VOO(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class AAI(tk.Frame):
@@ -397,7 +406,7 @@ class AAI(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class VVI(tk.Frame):
@@ -460,7 +469,7 @@ class VVI(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class DOO(tk.Frame):
@@ -538,7 +547,7 @@ class DOO(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class AOOR(tk.Frame):
@@ -629,7 +638,7 @@ class AOOR(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class VOOR(tk.Frame):
@@ -720,7 +729,7 @@ class VOOR(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class AAIR(tk.Frame):
@@ -818,7 +827,7 @@ class AAIR(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class VVIR(tk.Frame):
@@ -915,7 +924,7 @@ class VVIR(tk.Frame):
             return alert("Values added successfully")
 
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 class DOOR(tk.Frame):
@@ -996,20 +1005,6 @@ class DOOR(tk.Frame):
         BACK_button.grid(row = 20, column = 0,  pady=(20,20), padx=(10,10))
 
     def doorValues(self):
-        return alert('Values added successfully:\n\n' +
-        'LRL: ' + str(self.LRL_Entry.get()) + '\n'+
-        'URL: ' + str(self.URL_Entry.get()) + '\n'+
-        'MSR: ' + str(self.MSR_Entry.get()) + '\n'+
-        'FAVD: ' + str(self.FixedAV_Entry.get()) + '\n'+
-        'AAmp: ' + str(self.AA_Entry.get()) + '\n'+
-        'VAmp: ' + str(self.VA_Entry.get()) + '\n'+
-        'APW: ' + str(self.APW_Entry.get()) + '\n'+
-        'VPW: ' + str(self.VPW_Entry.get()) + '\n'+
-        'AT: ' + str(self.AT_Entry.get()) + '\n'+
-        'ReactTime: ' + str(self.ReactTime_Entry.get()) + '\n'+
-        'RF: ' + str(self.RF_Entry.get()) + '\n'+
-        'RecoveryTime: ' + str(self.RecoveryTime_Entry.get()))
-
         usr = getRecent() #getRecent() gets the returns the name of the user that is logged in
         lrl = self.LRL_Entry.get()
         url = self.URL_Entry.get()
@@ -1041,9 +1036,8 @@ class DOOR(tk.Frame):
             update(usr, "RF", rf)
             update(usr, "RecoveryTime", recovery)
             return alert("Values added successfully")
-
         else:
-            alert("INVALID INPUTS\n\nCheck your values again")
+            return alert("INVALID INPUTS\n\nCheck your values again")
 
 
 app = DCM()

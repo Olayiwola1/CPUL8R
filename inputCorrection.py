@@ -18,7 +18,7 @@ def checkURL(value):
 
 #Check the input value of the Atrial/Ventricular Amplitude to match the range requirements and return True if valid
 def checkAmp(value):
-    if (value >=0.5 and value <=3.2) or (value >=3.5 and value <=7.0) or (value==0):
+    if (value >=0.5 and value <=3.2) or (value >=3.5 and value <=5.0) or (value==0):
         return True
     else:
         return False
